@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Range-Based Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="quiz-container">
+        <h2>Answer the following questions:</h2>
+
+        <form id="range-form" action="/submit" method="POST">
+            <!-- Question 1 -->
+            <label for="q1_lower">What percentage of the population in Geneva is made up of foreigners? (Percentage)</label>
+            <div class="input-row">
+                <input type="number" id="q1_lower" name="q1_lower" placeholder="Lower Bound" required>
+                <input type="number" id="q1_upper" name="q1_upper" placeholder="Upper Bound" required>
+            </div>
+            <div id="q1_result" class="result"></div>
+            <div id="q1_answer" class="answer"></div>
+
+            <!-- Question 2 -->
+            <label for="q2_lower">How many lakes does Switzerland have?</label>
+            <div class="input-row">
+                <input type="number" id="q2_lower" name="q2_lower" placeholder="Lower Bound" required>
+                <input type="number" id="q2_upper" name="q2_upper" placeholder="Upper Bound" required>
+            </div>
+            <div id="q2_result" class="result"></div>
+            <div id="q2_answer" class="answer"></div>
+
+            <!-- Question 3 -->
+            <label for="q3_lower">What is the average age for Swiss women to have their first child? (Years)</label>
+            <div class="input-row">
+                <input type="number" id="q3_lower" name="q3_lower" placeholder="Lower Bound" required>
+                <input type="number" id="q3_upper" name="q3_upper" placeholder="Upper Bound" required>
+            </div>
+            <div id="q3_result" class="result"></div>
+            <div id="q3_answer" class="answer"></div>
+
+            <!-- Question 4 -->
+            <label for="q4_lower">What is the population of Turkey? (in millions)</label>
+            <div class="input-row">
+                <input type="number" id="q4_lower" name="q4_lower" placeholder="Lower Bound" required>
+                <input type="number" id="q4_upper" name="q4_upper" placeholder="Upper Bound" required>
+            </div>
+            <div id="q4_result" class="result"></div>
+            <div id="q4_answer" class="answer"></div>
+
+            <!-- Question 5 -->
+            <label for="q5_lower">What is the revenue of the most valuable firm in the world (Apple, in 2022)? (in billions of dollars)</label>
+            <div class="input-row">
+                <input type="number" id="q5_lower" name="q5_lower" placeholder="Lower Bound" required>
+                <input type="number" id="q5_upper" name="q5_upper" placeholder="Upper Bound" required>
+            </div>
+            <div id="q5_result" class="result"></div>
+            <div id="q5_answer" class="answer"></div>
+
+            <!-- Question 6 -->
+            <label for="q6_lower">What percentage of US people die in their sleep? (Percentage)</label>
+            <div class="input-row">
+                <input type="number" id="q6_lower" name="q6_lower" placeholder="Lower Bound" required>
+                <input type="number" id="q6_upper" name="q6_upper" placeholder="Upper Bound" required>
+            </div>
+            <div id="q6_result" class="result"></div>
+            <div id="q6_answer" class="answer"></div>
+
+            <!-- Question 7 -->
+            <label for="q7_lower">At what temperature does Iron melt? (Degrees Celsius)</label>
+            <div class="input-row">
+                <input type="number" id="q7_lower" name="q7_lower" placeholder="Lower Bound" required>
+                <input type="number" id="q7_upper" name="q7_upper" placeholder="Upper Bound" required>
+            </div>
+            <div id="q7_result" class="result"></div>
+            <div id="q7_answer" class="answer"></div>
+
+            <!-- Question 8 -->
+            <label for="q8_lower">What is the highest altitude a skydiver ever jumped in kilometers? (km)</label>
+            <div class="input-row">
+                <input type="number" id="q8_lower" name="q8_lower" placeholder="Lower Bound" required>
+                <input type="number" id="q8_upper" name="q8_upper" placeholder="Upper Bound" required>
+            </div>
+            <div id="q8_result" class="result"></div>
+            <div id="q8_answer" class="answer"></div>
+
+            <!-- Question 9 -->
+            <label for="q9_lower">What is the top speed ever cycled (just human power) in kilometers per hour? (km/h)</label>
+            <div class="input-row">
+                <input type="number" id="q9_lower" name="q9_lower" placeholder="Lower Bound" required>
+                <input type="number" id="q9_upper" name="q9_upper" placeholder="Upper Bound" required>
+            </div>
+            <div id="q9_result" class="result"></div>
+            <div id="q9_answer" class="answer"></div>
+
+            <!-- Question 10 -->
+            <label for="q10_lower">How high was the tallest wave ever recorded on Earth in meters? (meters)</label>
+            <div class="input-row">
+                <input type="number" id="q10_lower" name="q10_lower" placeholder="Lower Bound" required>
+                <input type="number" id="q10_upper" name="q10_upper" placeholder="Upper Bound" required>
+            </div>
+            <div id="q10_result" class="result"></div>
+            <div id="q10_answer" class="answer"></div>
+
+            <button id="submit-btn" type="submit">Submit Answer</button>
+        </form>
+
+        <div id="summary" class="summary"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

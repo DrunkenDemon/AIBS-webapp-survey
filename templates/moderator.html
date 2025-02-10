@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moderator Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="moderator-container">
+        <h1>Moderator Dashboard</h1>
+        <p><strong>Average Correct Answers:</strong> <span id="average-correct">Loading...</span></p>
+        <p><strong>Total Submissions:</strong> <span id="total-submissions">Loading...</span></p>
+        
+        <button class="reset-btn" onclick="resetDatabase()">Reset Database</button>
+        <a href="/logout" class="logout-btn">Logout</a>
+    </div>
+
+    <script>
+        async function fetchModeratorData() {
+            try {
+                const response = await fetch('/moderator_data');
+                if (!response.ok) {
+                    throw new Error('Unauthorized access');
+                }
+
+                const data = await response.json();
+                document.getElementById('average-correct').textContent = data.average_correct;
+                document.getElementById('total-submissions').textContent = data.total_submissions;
+            } catch (error) {
+                alert('Access denied or server error.');
+                window.location.href = "/moderator";
+            }
+        }
+
+        async function resetDatabase() {
+            if (!confirm("Are you sure you want to reset all data? This action cannot be undone.")) {
+                return;
+            }
+
+            try {
+                const response = await fetch('/reset_data', {
+                    method: 'POST'
+                });
+
+                if (!response.ok) {
+                    throw new Error('Reset failed');
+                }
+
+                const data = await response.json();
+                document.getElementById('average-correct').textContent = data.average_correct;
+                document.getElementById('total-submissions').textContent = data.total_submissions;
+
+                alert("Database reset successful.");
+            } catch (error) {
+                alert("Failed to reset database. Please try again.");
+            }
+        }
+
+        fetchModeratorData();
+    </script>
+</body>
+</html>
