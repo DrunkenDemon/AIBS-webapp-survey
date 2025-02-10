@@ -1,7 +1,14 @@
+import os
 from flask import Flask, render_template, request, jsonify, redirect, url_for, session
 
 app = Flask(__name__)
 app.secret_key = "supersecretkey"  # Needed for session management
+
+# Get the port from Render (default to 10000 if not found)
+PORT = int(os.environ.get("PORT", 10000))
+
+if __name__ == '__main__':
+    app.run(host="0.0.0.0", port=PORT)
 
 # Moderator password
 MODERATOR_PASSWORD = "aibs25"
