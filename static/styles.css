@@ -153,3 +153,38 @@ button:disabled {
 .reset-btn:hover {
     background-color: #e67e22;
 }
+.quiz-container {
+    max-width: 800px; /* Set a larger width */
+    margin: auto;
+    padding: 20px;
+    border: 3px solid black; /* Increase border thickness */
+    border-radius: 10px;
+    background-color: white; /* Ensure contrast */
+}
+
+/* Ensure proper scaling on mobile */
+@media (max-width: 768px) {
+    .quiz-container {
+        max-width: 90%; /* Allow more space on small screens */
+        border-width: 4px; /* Make border thicker on mobile */
+    }
+}
+body {
+    background-image: url("static/images/Unige Logo.png");
+    background-size: contain; /* Adjust to fit the page */
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.1; /* Makes it faint like a watermark */
+}
+.footer {
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+    margin-top: 30px;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.8);
+}
